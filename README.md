@@ -8,7 +8,7 @@ Genutzt von:
 
 | Kurs | Karte | Besonderheit |
 | :--- | :---- | :----------- |
-| Erhebung, Analyse und Visualisierung digitaler Daten (EAVD) | [Karte](https://tubaf-ifi-liascript.github.io/VL_EAVD/kurslandkarte/) | strenge Freigabe (`vorschau="keine"`), PDF-Links |
+| Erhebung, Analyse und Visualisierung digitaler Daten (EAVD) | [Karte](https://tubaf-ifi-liascript.github.io/VL_EAVD/kurslandkarte/) | strenge Freigabe (`vorschau="keine"`) |
 | Digitale Systeme / Eingebettete Systeme | [Karte](https://tubaf-ifi-liascript.github.io/VL_EingebetteteSysteme/kurslandkarte/) | Seiten aus der Repo-Wurzel |
 | Robotik (VL, Ü, P) | [Karte](https://tubaf-ifi-liascript.github.io/VL_SoftwareprojektRobotik/kurslandkarte/) | drei Termintypen, Orientierungsfolien (`folien=True`) |
 
@@ -21,6 +21,8 @@ Genutzt von:
 „Sie sind hier“ folgt dem Datum. Begriffe erscheinen nach ihrer Freigabe; `vorschau="ausblick"` zeigt vorbereitete Begriffe auf Wunsch blass, `vorschau="keine"` lässt sie gar nicht erst in die Seite.
 
 Direktlinks: `…/kurslandkarte/#termin=<key>`, `#begriff=<id>`, `#ansicht=liste|metro|zeit` (kombinierbar mit `&`).
+
+**Druckfassungen:** Mit `pdf_ordner="docs/pdf"` verlinken Kacheln und Startseite das PDF jedes Termins (Name = Materialdatei, bei `README.md` der Ordnername). `python3 kurslandkarte/erzeuge.py --pdf` erzeugt vorher mit dem LiaScript-Exporter `liaex` jedes fehlende oder veraltete PDF. Gebaut und verlinkt werden die PDFs der freigegebenen Termine, alternativ die in `pdf_termine` genannten. Die PDFs werden mit eingecheckt.
 
 ## Dateien
 
