@@ -9,7 +9,7 @@ Verbesserungen deshalb immer hier im Kern-Repository machen.
 import os, shutil, sys
 
 HIER = os.path.dirname(os.path.abspath(__file__))
-DATEIEN = ["kern.py", "vorlage.html", "startseite.html", "VERSION"]
+DATEIEN = ["kern.py", "vorlage.html", "startseite.html", "VERSION", "NOTICE-Carbon.txt"]
 
 ziel = os.path.join(sys.argv[1], "kurslandkarte", "invivis")
 os.makedirs(ziel, exist_ok=True)

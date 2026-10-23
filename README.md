@@ -1,6 +1,6 @@
 # invivis Kurslandkarte
 
-_Autoren: Sebastian Zug & Claude Code (Opus 5.5)_
+_Autoren: Sebastian Zug, Ines Aubeln & Claude Code (Opus 5.5)_
 
 Gemeinsamer Kern der Kurslandkarten im Projekt **invivis**: eine interaktive Übersicht für Studierende über Termine, Begriffe, Zusammenhänge und didaktische Fäden eines Kurses – dazu eine Startseite und auf Wunsch Orientierungsfolien in den LiaScript-Materialien. Jeder Kurs liefert nur seine Daten; Prüfung, Darstellung und Verbesserungen leben hier an einer Stelle.
 
@@ -24,6 +24,10 @@ Direktlinks: `…/kurslandkarte/#termin=<key>`, `#begriff=<id>`, `#ansicht=liste
 
 **Druckfassungen:** Mit `pdf_ordner="docs/pdf"` verlinken Kacheln und Startseite das PDF jedes Termins (Name = Materialdatei, bei `README.md` der Ordnername). `python3 kurslandkarte/erzeuge.py --pdf` erzeugt vorher mit dem LiaScript-Exporter `liaex` jedes fehlende oder veraltete PDF. Gebaut und verlinkt werden die PDFs der freigegebenen Termine, alternativ die in `pdf_termine` genannten. Die PDFs werden mit eingecheckt.
 
+## Gestaltung
+
+Karte und Startseite folgen der Lia-Designsprache (Entwurf: Ines Aubeln): IBM Plex, LiaScript-Marke im Fuß, eine Form je Art von Klick-Element. Farbe hat auf der ganzen Seite genau eine Bedeutung: Fäden der Metrokarte tragen die Linienfarben mit Nummernfeld (F1–F6), damit sie auch bei Farbsehschwäche unterscheidbar bleiben. Themengebiete sind farblos.
+
 ## Dateien
 
 | Datei | Inhalt |
@@ -33,6 +37,7 @@ Direktlinks: `…/kurslandkarte/#termin=<key>`, `#begriff=<id>`, `#ansicht=liste
 | `startseite.html` | Startseite des Kurses („Diese Woche“, Kurslandkarte, Lernziele, Organisation, Kontakt) |
 | `uebernehmen.py` | kopiert den Kern nach `<kurs>/kurslandkarte/invivis/` |
 | `VERSION` | Version des Kerns; steht in jeder erzeugten Seite |
+| `NOTICE-Carbon.txt` | Lizenzhinweis für das eingebettete Carbon-Icon (Apache 2.0) |
 
 ## Einen Kurs anbinden oder aktualisieren
 
@@ -45,4 +50,4 @@ Die Kursdatei `kurslandkarte/erzeuge.py` enthält nur Daten und ruft `kern.erzeu
 
 ## Kursspezifisches
 
-Alles Kursspezifische steht im `KURS`-Wörterbuch der Kursdatei: Titel, Links (LiaScript, Pages, Repository), Wortwahl (`einheit` „Vorlesung“/„Termin“, `liste`, `frage_label` „Leitfrage“/„Ziel im Projekt“, Freigabetexte), Statusbeschriftungen, Startansicht, Lernziele, Organisation, Kontakt, Lizenz. Farben kommen aus einer gemeinsamen Palette: Blöcke `ph1`–`ph4`, Themengebiete `c1`–`c7` (jeweils hell und dunkel).
+Alles Kursspezifische steht im `KURS`-Wörterbuch der Kursdatei: Titel, Links (LiaScript, Pages, Repository), Wortwahl (`einheit` „Vorlesung“/„Termin“, `liste`, `frage_label` „Leitfrage“/„Ziel im Projekt“, Freigabetexte), Statusbeschriftungen, Startansicht, Lernziele, Organisation, Kontakt, Lizenz. Farben kommen aus einer gemeinsamen Palette: Blöcke `ph1`–`ph4` (hell und dunkel). Farbe bedeutet in der Karte nur „Faden“ (F1–F6); Themengebiete werden über ihre Zeile und Beschriftung unterschieden, ihr Feld `farbe` wird nicht mehr dargestellt.
