@@ -24,6 +24,15 @@ Direktlinks: `…/kurslandkarte/#termin=<key>`, `#begriff=<id>`, `#ansicht=liste
 
 **Druckfassungen:** Mit `pdf_ordner="docs/pdf"` verlinken Kacheln und Startseite das PDF jedes Termins (Name = Materialdatei, bei `README.md` der Ordnername). `python3 kurslandkarte/erzeuge.py --pdf` erzeugt vorher mit dem LiaScript-Exporter `liaex` jedes fehlende oder veraltete PDF. Gebaut und verlinkt werden die PDFs der freigegebenen Termine, alternativ die in `pdf_termine` genannten. Die PDFs werden mit eingecheckt.
 
+## Termine und Datum
+
+Die Karte ordnet Termine nach **Kalenderwochen** (Rasterzeile „KW 44 · 26.–30.10.“). Was am einzelnen Termin steht, hängt vom Kurs ab:
+
+* **Standard:** Das Datum eines Termins ist irgendein Tag seiner Woche (meist der Montag). Angezeigt wird nur die Woche („KW 44 · 26.–30.10.“), damit kein Montag als Termin missverstanden wird.
+* **`"tagesgenau": True`** im `KURS`-Wörterbuch: Das Datum ist der echte Tag. Mit `"uhrzeiten": {"Mi": "11:30–13:00", "Do": "16:15–17:45"}` erscheint die Uhrzeit dazu („Mi 28.10. · 11:30–13:00“). Ein Termin über mehrere Tage nimmt eine Liste (`["2026-11-25", "2026-11-26"]` → „Mi 25.11. 11:30–13:00 + Do 26.11. 16:15–17:45“; in der Blocktabelle der Folien nur die Tage); steht nur die Woche fest, genügt `"2027-W21"` („KW 21 · Tag folgt“).
+
+Der Kern prüft, dass Wochen und Tage chronologisch sind. Startseite, Kacheln, Wochenleiste und Orientierungsfolien („Nächster Halt“) zeigen dieselbe Angabe.
+
 ## Gestaltung
 
 Karte und Startseite folgen der Lia-Designsprache (Entwurf: Ines Aubeln): IBM Plex, LiaScript-Marke im Fuß, eine Form je Art von Klick-Element. Farbe hat auf der ganzen Seite genau eine Bedeutung: Fäden der Metrokarte tragen die Linienfarben mit Nummernfeld (F1–F6), damit sie auch bei Farbsehschwäche unterscheidbar bleiben. Themengebiete sind farblos.
