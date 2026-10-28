@@ -37,11 +37,22 @@ Der Kern prüft, dass Wochen und Tage chronologisch sind. Startseite, Kacheln, W
 
 Karte und Startseite folgen der Lia-Designsprache (Entwurf: Ines Aubeln): IBM Plex, LiaScript-Marke im Fuß, eine Form je Art von Klick-Element. Farbe hat auf der ganzen Seite genau eine Bedeutung: Fäden der Metrokarte tragen die Linienfarben mit Nummernfeld (F1–F6), damit sie auch bei Farbsehschwäche unterscheidbar bleiben. Themengebiete sind farblos.
 
+## Button zur Kurslandkarte
+
+In jeder Vorlesung lässt sich unter die Zielstellung ein Button setzen, der die Karte bei diesem Termin öffnet. Der Kurs setzt dafür an der gewünschten Stelle die beiden Markierungen; den Inhalt dazwischen schreibt `kern.py` bei jedem Lauf neu, unabhängig von `folien`:
+
+```markdown
+<!-- kurslandkarte:knopf-start -->
+<!-- kurslandkarte:knopf-ende -->
+```
+
+Erneuert werden nur Termine vom Typ `VL` mit Material. Gestaltung wie die Karte (Linkfarbe, IBM Plex, Radius 0, keine Schatten); in der GitHub-Ansicht bleibt ein normaler Link. Den Text ändert `KURS["knopf_text"]` (Standard „🗺️ Diese Vorlesung in der Kurslandkarte →“).
+
 ## Dateien
 
 | Datei | Inhalt |
 | :---- | :----- |
-| `kern.py` | Prüfung der Daten, Erzeugung von `kurslandkarte.json`, Karte, Startseite und Orientierungsfolien |
+| `kern.py` | Prüfung der Daten, Erzeugung von `kurslandkarte.json`, Karte, Startseite, Orientierungsfolien und Button |
 | `vorlage.html` | Karte; `%%…%%` füllt `kern.py` |
 | `startseite.html` | Startseite des Kurses („Diese Woche“, Kurslandkarte, Lernziele, Organisation, Kontakt) |
 | `uebernehmen.py` | kopiert den Kern nach `<kurs>/kurslandkarte/invivis/` |
